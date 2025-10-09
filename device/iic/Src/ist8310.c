@@ -1,3 +1,5 @@
+/*map*/
+#include "ist8310_reg.h"
 /*denpendence*/
 #include "ist8310.h"
 /*std*/

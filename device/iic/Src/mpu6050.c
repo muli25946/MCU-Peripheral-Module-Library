@@ -1,3 +1,5 @@
+/*map*/
+#include "mpu6050_reg.h"
 /*dependence*/
 #include "mpu6050.h"
 /*std*/

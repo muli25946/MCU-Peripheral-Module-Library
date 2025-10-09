@@ -1,21 +1,18 @@
 /**
  * @file mpu6050.h
  * @author Muli25946 (2687025869@qq.com)
- * @brief MPU6050驱动，使用函数注入的方式，以隔离处理裸机和底层硬件，抹平平台差异
+ * @brief
+ * MPU6050驱动，使用函数注入的方式，以隔离处理裸机和底层硬件，抹平平台差异
  * @version 0.1
  * @date 2025-10-08
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 #ifndef MPU6050_H
 #define MPU6050_H
 
 #include <stdint.h>
-
-// MPU6050地址
-#define MPU6050_ADDR 0x68 << 1
-#define MPU6050_IIC hi2c2
 
 /*MPU6050错误类型*/
 typedef enum {
@@ -33,9 +30,9 @@ typedef struct physicalValue {
 
 /*数据结构体*/
 typedef struct MPU6050 {
-  int16_t acc[3];  // 对应xyz
-  int16_t gyro[3]; // 对应xyz
-  uint16_t temp;
+  int16_t acc[3];  // 加速度[x,y,z]
+  int16_t gyro[3]; // 陀螺仪[x,y,z]
+  uint16_t temp;   // 温度
   PhysicalType redirectAcc;
   PhysicalType redirectGyro;
 } mpu6050_struct;
@@ -61,37 +58,10 @@ typedef uint8_t (*MPU6050WriteBuf)(
     uint8_t len); // 声明写入指定寄存器指定长度数据的函数
 typedef void (*MPU6050Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
-/*声明调用函数*/
+/*声明函数*/
 MPU6050ErrorType MPU6050ObjectInit(MPU6050ObjectType *mpu6050,
                                    MPU6050ReadBuf read, MPU6050WriteBuf write,
                                    MPU6050Delayms delay);
 void MPU6050GetRedirectValue(MPU6050ObjectType *mpu6050);
-
-/*MPU6050 寄存器*/
-#define MPU6050_SMPLRT_DIV                                                     \
-  0x19 // 指定陀螺仪输出频率的分频值以作为 MPU-6050 的采样率
-#define MPU6050_CONFIG                                                         \
-  0x1A // 加速度计和陀螺仪的外部帧同步(FSYNC)引脚采样以及设置数字低通滤波器
-#define MPU6050_GYRO_CONFIG 0x1B  // 触发陀螺仪的自检以及设定陀螺仪的满测量范围
-#define MPU6050_ACCEL_CONFIG 0x1C // 触发加速度计的自检并设定其满量程范围
-
-#define MPU6050_ACCEL_XOUT_H 0x3B
-#define MPU6050_ACCEL_XOUT_L 0x3C
-#define MPU6050_ACCEL_YOUT_H 0x3D
-#define MPU6050_ACCEL_YOUT_L 0x3E
-#define MPU6050_ACCEL_ZOUT_H 0x3F
-#define MPU6050_ACCEL_ZOUT_L 0x40
-#define MPU6050_TEMP_OUT_H 0x41
-#define MPU6050_TEMP_OUT_L 0x42
-#define MPU6050_GYRO_XOUT_H 0x43
-#define MPU6050_GYRO_XOUT_L 0x44
-#define MPU6050_GYRO_YOUT_H 0x45
-#define MPU6050_GYRO_YOUT_L 0x46
-#define MPU6050_GYRO_ZOUT_H 0x47
-#define MPU6050_GYRO_ZOUT_L 0x48
-
-#define MPU6050_PWR_MGMT_1 0x6B // 用户配置电源模式和时钟源
-#define MPU6050_WHO_AM_I 0x75   // 这个寄存器用来查证该设备的身份,默认0x68
-#define MPU6050_DEVICE_ID 0x68
 
 #endif // !MPU6050_H

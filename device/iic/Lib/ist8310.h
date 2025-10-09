@@ -11,12 +11,11 @@
 #ifndef IST8310_H
 #define IST8310_H
 
+/*std*/
 #include <stdint.h>
 
 /*整形向uT转换*/
 #define MAG_SEN 0.3f
-#define IST8310_I2C_ADDR 0x0E
-#define IST8310_IIC hi2c1
 
 /*定义IST8310错误枚举*/
 typedef enum {
@@ -58,36 +57,10 @@ typedef uint8_t (*IST8310WriteBuf)(
     uint8_t len); // 声明写入指定寄存器指定长度数据的函数
 typedef void (*IST8310Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
+/*声明函数*/
 IST8310ErrorType IST8310ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
                                    IST8310WriteBuf write, IST8310Delayms delay);
 void IST8310_GET_RAW_DATA(IST8310ObjectType *ist);
 void IST8310_GET_MEG_VAL(IST8310ObjectType *ist);
-
-/*IST8310寄存器地址*/
-#define IST8310_CHIP_ID_ADDR 0x00
-#define IST8310_CHIP_ID_VAL 0x10
-#define IST8310_STAT1_ADDR 0x02
-/*3轴磁力计数据*/
-#define IST8310_DATA_XL_ADDR 0x03
-#define IST8310_DATA_XH_ADDR 0x04
-#define IST8310_DATA_YL_ADDR 0x05
-#define IST8310_DATA_YH_ADDR 0x06
-#define IST8310_DATA_ZL_ADDR 0x07
-#define IST8310_DATA_ZH_ADDR 0x08
-/*寄存器*/
-#define IST8310_STAT2_ADDR 0x09
-#define IST8310_CNTL1_ADDR 0x0A
-#define IST8310_CNTL1_SLEEP 0x00
-#define IST8310_CNTL1_SINGLE 0x01
-#define IST8310_CNTL1_CONTINUE 0x0B
-#define IST8310_CNTL2_ADDR 0x0B
-#define IST8310_STAT2_NONE_ALL 0x00
-#define IST8310_SELF_CHECK_ADDR 0x0C
-#define IST8310_TEMPL_ADDR 0x1C
-#define IST8310_TEMPH_ADDR 0x1D
-/*平均采样次数*/
-#define IST8310_AVGCNTL_ADDR 0x41
-#define IST8310_AVGCNTL_TWICE 0x09
-#define IST8310_AVGCNTL_FOURTH 0x12
 
 #endif // !IST8310_H

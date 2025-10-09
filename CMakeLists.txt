@@ -7,7 +7,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # 添加头文件搜索路径
 include_directories(
     device/iic/Lib
+    device/iic/Reg
     device/spi/Lib
+    device/spi/Reg
     device/uart/Lib
     modules/Lib
     # 如果还有其他自定义头文件目录，请在此继续添加

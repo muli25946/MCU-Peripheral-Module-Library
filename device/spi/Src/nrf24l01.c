@@ -1,3 +1,5 @@
+/*reg*/
+#include "nrf24l01_reg.h"
 /*dependence*/
 #include "nrf24l01.h"
 /*std*/
