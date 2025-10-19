@@ -56,6 +56,4 @@ void MahonyFilterCoreInit(MahonyFilterType *ahrs);
 void MahonyUpdateAHRSIMU(MahonyFilterType *ahrs, MahonyInput *input, float dt);
 void MahonyUpdateAHRS(MahonyFilterType *ahrs, MahonyInput *input, float dt);
 
-
-
 #endif // !MAHONY_H
