@@ -5,6 +5,7 @@
 /*std*/
 #include "stddef.h"
 
+// 收发地址定义
 const uint8_t TX_ADDRESS[TX_ADR_WIDTH] = {0x34, 0x43, 0x10, 0x10,
                                           0x01}; // 发送地址
 const uint8_t RX_ADDRESS[RX_ADR_WIDTH] = {0x34, 0x43, 0x10, 0x10,
@@ -86,15 +87,23 @@ uint8_t NRF24L01ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf) {
   return 1; // 没收到任何数据
 }
 
-/*nRF24L01对象初始化函数*/
-NRF24L01ErrorType
-NRF24L01Initialization(NRF24L01ObjectType *nrf,            // nRF24L01对象
-                       NRF24L01ReadWriteByte spiReadWrite, // SPI读写函数指针
-                       NRF24L01ChipSelect cs,  // 片选信号操作函数指针
-                       NRF24L01ChipEnable ce,  // 使能信号操作函数指针
-                       NRF24L01GetIRQ irq,     // 中断信号获取函数指针
-                       NRF24L01Delayms delayms // 毫秒延时
-) {
+/**
+ * @brief nRF24L01对象初始化函数
+ *
+ * @param nrf NRF24L01ObjectType类型的对象地址
+ * @param spiReadWrite SPI读写函数指针
+ * @param cs 片选信号操作函数指针
+ * @param ce 使能信号操作函数指针
+ * @param irq 中断信号获取函数指针
+ * @param delayms 毫秒延时
+ * @return NRF24L01ErrorType
+ */
+NRF24L01ErrorType NRF24L01Initialization(NRF24L01ObjectType *nrf,
+                                         NRF24L01ReadWriteByte spiReadWrite,
+                                         NRF24L01ChipSelect cs,
+                                         NRF24L01ChipEnable ce,
+                                         NRF24L01GetIRQ irq,
+                                         NRF24L01Delayms delayms) {
   int retry = 0;
 
   if ((nrf == NULL) || (spiReadWrite == NULL) || (ce == NULL) ||
@@ -130,7 +139,12 @@ NRF24L01Initialization(NRF24L01ObjectType *nrf,            // nRF24L01对象
   return NRF24L01_NoError;
 }
 
-/*设置nRF24L01的模式*/
+/**
+ * @brief 设置nRF24L01的模式
+ *
+ * @param nrf NRF24L01ObjectType类型地址
+ * @param mode 设置收发模式
+ */
 static void SetNRF24L01Mode(NRF24L01ObjectType *nrf, NRF24L01ModeType mode) {
   nrf->ChipEnable(NRF24L01CE_Disable);
 
@@ -209,10 +223,14 @@ static uint8_t NRF24L01Check(NRF24L01ObjectType *nrf) {
   return status;
 }
 
-/*写寄存器*/
-/*参数：reg:指定寄存器地址*/
-/*      value:写入的值*/
-/*返回值：状态值*/
+/**
+ * @brief 写寄存器
+ *
+ * @param nrf NRF24L01ObjectType类型地址
+ * @param reg 指定寄存器地址
+ * @param value 写入的值
+ * @return uint8_t 状态值
+ */
 static uint8_t NRF24L01WriteRegister(NRF24L01ObjectType *nrf, uint8_t reg,
                                      uint8_t value) {
   uint8_t status;
@@ -225,9 +243,13 @@ static uint8_t NRF24L01WriteRegister(NRF24L01ObjectType *nrf, uint8_t reg,
   return (status); // 返回状态值
 }
 
-/*读取寄存器值*/
-/*参数：reg:要读的寄存器*/
-/*返回值：读取的寄存器值*/
+/**
+ * @brief 读取寄存器值
+ *
+ * @param nrf NRF24L01ObjectType类型地址
+ * @param reg 要读的寄存器
+ * @return uint8_t 读取的寄存器值
+ */
 static uint8_t NRF24L01ReadRegigster(NRF24L01ObjectType *nrf, uint8_t reg) {
   uint8_t reg_val;
 
@@ -240,11 +262,15 @@ static uint8_t NRF24L01ReadRegigster(NRF24L01ObjectType *nrf, uint8_t reg) {
   return (reg_val); // 返回状态值
 }
 
-/*在指定位置读出指定长度的数据*/
-/*参数：reg:寄存器(位置)*/
-/*      *pBuf:数据指针*/
-/*      len:数据长度*/
-/*返回值,此次读到的状态寄存器值*/
+/**
+ * @brief 在指定位置读出指定长度的数据
+ *
+ * @param nrf NRF24L01ObjectType类型地址
+ * @param reg 寄存器
+ * @param pBuf 数据指针
+ * @param len 数据长度
+ * @return uint8_t 此次读到的状态寄存器值
+ */
 static uint8_t NRF24L01ReadBuffer(NRF24L01ObjectType *nrf, uint8_t reg,
                                   uint8_t *pBuf, uint8_t len) {
   uint8_t status;
@@ -262,11 +288,15 @@ static uint8_t NRF24L01ReadBuffer(NRF24L01ObjectType *nrf, uint8_t reg,
   return status; // 返回读到的状态值
 }
 
-/*在指定位置写指定长度的数据*/
-/*参数：reg:寄存器(位置)*/
-/*      *pBuf:数据指针*/
-/*      len:数据长度*/
-/*返回值,此次读到的状态寄存器值*/
+/**
+ * @brief 在指定位置写指定长度的数据
+ *
+ * @param nrf NRF24L01ObjectType类型地址
+ * @param reg 寄存器
+ * @param pBuf 数据指针
+ * @param len 数据长度
+ * @return uint8_t 读到的状态寄存器值
+ */
 static uint8_t NRF24L01WriteBuffer(NRF24L01ObjectType *nrf, uint8_t reg,
                                    uint8_t *pBuf, uint8_t len) {
   uint8_t status;
@@ -284,7 +314,11 @@ static uint8_t NRF24L01WriteBuffer(NRF24L01ObjectType *nrf, uint8_t reg,
   return status; // 返回读到的状态值
 }
 
-/*缺省片选处理函数*/
+/**
+ * @brief 缺省片选处理函数
+ *
+ * @param cs
+ */
 static void NRF24L01CSDefault(NRF24L01CSType cs) {
   // 用于在SPI通讯时，片选信号硬件电路选中的情况
   return;

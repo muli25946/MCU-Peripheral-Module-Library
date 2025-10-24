@@ -2,7 +2,6 @@
 /build
 /.cache
 /CMakeFiles
-/main.c
 /CMakeCache.txt
 /cmake_install.cmake
 /Mydriver.code-workspace

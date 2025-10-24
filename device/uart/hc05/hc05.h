@@ -32,17 +32,17 @@ typedef struct {
 typedef struct {
   /*functions*/
   uint8_t (*TxData)(uint8_t *txBuf,
-                    uint8_t len); // 声明使用HC05发送多个字节的函数
+                    uint8_t len); // 绑定串口发送多个字节的函数到设备HC05
   uint8_t (*RxData)(uint8_t *rxBuf,
-                    uint8_t len); // 声明使用HC05接收多个字节的函数
+                    uint8_t len); // 绑定串口接收多个字节的函数到设备HC05
 
 } HC05ObjectType;
 
-/*需要实现的接口*/
+/*需要实现的供HC05使用的串口函数接口*/
 typedef uint8_t (*HC05TxData)(uint8_t *txBuf,
-                              uint8_t len); // 声明使用HC05发送多个字节的函数
+                              uint8_t len); // 声明使用串口发送多个字节的函数
 typedef uint8_t (*HC05RxData)(uint8_t *rxBuf,
-                              uint8_t len); // 声明使用HC05接收多个字节的函数
+                              uint8_t len); // 声明使用串口接收多个字节的函数
 
 /*声明调用函数*/
 HC05ErrorType HC05ObjectInit(HC05ObjectType *hc05, HC05TxData tx,

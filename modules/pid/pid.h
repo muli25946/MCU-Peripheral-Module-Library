@@ -16,7 +16,11 @@ typedef struct {
 /*mahony控制器数据类型*/
 typedef struct {
   PIDControllerCore core;
-  float out;    // pid输出的控制量
+  float out; // pid输出的控制量
 } PIDControllerType;
+
+void PID_Init(PIDControllerType *pid, float kp, float ki, float kd,
+              float limit);
+void PIDUpdate(PIDControllerType *pid, float error, float dt);
 
 #endif // !PID_H

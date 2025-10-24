@@ -1,0 +1,98 @@
+<mxfile host="65bd71144e">
+    <diagram name="第 1 页" id="0eu88PqfCqI5SsBaLeyB">
+        <mxGraphModel dx="1086" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-3" value="VOFA组件" style="whiteSpace=wrap;html=1;aspect=fixed;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=0;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="254" y="210" width="320" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-35" value="接收处理" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="428" y="230" width="146" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-7" value="硬件层" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="214" y="585" width="400" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-5" value="串口接收" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="408" y="615" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-4" value="串口发送" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="248" y="615" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-8" value="frame" style="swimlane;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="274" y="440" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-9" value="&lt;br&gt;&lt;div&gt;载荷数据&lt;/div&gt;&lt;div&gt;帧尾&lt;/div&gt;" style="whiteSpace=wrap;html=1;container=1;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-8" vertex="1">
+                    <mxGeometry y="20" width="140" height="70" as="geometry">
+                        <mxRectangle y="20" width="110" height="90" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-12" value="应用层" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="80" width="440" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-11" value="帧解码单元" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="454" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-13" value="发送数据打包单元" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="274" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.6;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;shape=flexArrow;fillColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="gemu8WQRXSN0FK20eoW1-9" target="gemu8WQRXSN0FK20eoW1-4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-18" value="定时任务/事件触发" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-17" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3864" relative="1" as="geometry">
+                        <mxPoint x="6" y="-377" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-23" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="304" y="370" width="60" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-25" value="预发送的数据&lt;div&gt;float[x]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-27" value="接收数据消费区" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;shape=flexArrow;fillColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="gemu8WQRXSN0FK20eoW1-28" target="gemu8WQRXSN0FK20eoW1-27" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-33" value="查表赋值/执行" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-32" vertex="1" connectable="0">
+                    <mxGeometry x="0.0579" y="-1" relative="1" as="geometry">
+                        <mxPoint x="62" y="-16" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-28" value="匹配表" style="swimlane;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+                    <mxGeometry x="444" y="250" width="130" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-30" value="就绪状态&lt;div&gt;ID&lt;/div&gt;&lt;div&gt;载荷数据&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-28" vertex="1">
+                    <mxGeometry y="20" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=0.988;entryDx=0;entryDy=0;entryPerimeter=0;shape=flexArrow;fillColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="gemu8WQRXSN0FK20eoW1-11" target="gemu8WQRXSN0FK20eoW1-30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-34" value="存入" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-31" vertex="1" connectable="0">
+                    <mxGeometry x="0.2445" y="-2" relative="1" as="geometry">
+                        <mxPoint x="3" y="5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;shape=flexArrow;fillColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="gemu8WQRXSN0FK20eoW1-25" target="gemu8WQRXSN0FK20eoW1-13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;shape=flexArrow;endArrow=block;endFill=0;edgeStyle=orthogonalEdgeStyle;fillColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="gemu8WQRXSN0FK20eoW1-5" target="gemu8WQRXSN0FK20eoW1-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="gemu8WQRXSN0FK20eoW1-16" value="中断/轮询" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;sketch=1;curveFitting=1;jiggle=2;" parent="gemu8WQRXSN0FK20eoW1-15" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3649" y="3" relative="1" as="geometry">
+                        <mxPoint x="45" y="12" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="&lt;div style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;span&gt;VOFATxFrame函数&lt;/span&gt;&lt;/div&gt;" style="text;align=center;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;labelBackgroundColor=default;sketch=1;curveFitting=1;jiggle=2;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="298" y="250" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;div style=&quot;color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;VOfAReadDataFromBuffer函数&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="514" y="200" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
