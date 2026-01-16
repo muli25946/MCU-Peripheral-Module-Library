@@ -49,17 +49,17 @@ typedef struct {
   void (*Delayms)(uint32_t nTime);  // 声明毫秒延迟函数
 } IST8310ObjectType;
 
-typedef uint8_t (*IST8310ReadBuf)(
+typedef uint8_t (*IST8310_ReadBuf)(
     uint8_t reg, uint8_t *pRxBuf,
     uint8_t len); // 声明读取指定寄存器上多个字节的函数
-typedef uint8_t (*IST8310WriteBuf)(
+typedef uint8_t (*IST8310_WriteBuf)(
     uint8_t reg, uint8_t *pTxBuf,
     uint8_t len); // 声明写入指定寄存器指定长度数据的函数
-typedef void (*IST8310Delayms)(uint32_t nTime); // 声明毫秒延迟函数
+typedef void (*IST8310_Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
 /*声明函数*/
-IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
-                                   IST8310WriteBuf write, IST8310Delayms delay);
+IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310_ReadBuf read,
+                                   IST8310_WriteBuf write, IST8310_Delayms delay);
 void IST8310_GetRawData(IST8310ObjectType *ist);
 void IST8310_GetMegVal(IST8310ObjectType *ist);
 

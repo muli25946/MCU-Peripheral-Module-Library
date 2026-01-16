@@ -50,18 +50,18 @@ typedef struct {
 } MPU6050ObjectType;
 
 /*需要实现的接口*/
-typedef uint8_t (*MPU6050ReadBuf)(
+typedef uint8_t (*MPU6050_ReadBuf)(
     uint8_t reg, uint8_t *pRxBuf,
     uint8_t len); // 声明读取指定寄存器上多个字节的函数
-typedef uint8_t (*MPU6050WriteBuf)(
+typedef uint8_t (*MPU6050_WriteBuf)(
     uint8_t reg, uint8_t *pTxBuf,
     uint8_t len); // 声明写入指定寄存器指定长度数据的函数
-typedef void (*MPU6050Delayms)(uint32_t nTime); // 声明毫秒延迟函数
+typedef void (*MPU6050_Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
 /*声明函数*/
 MPU6050ErrorType MPU6050_ObjectInit(MPU6050ObjectType *mpu6050,
-                                   MPU6050ReadBuf read, MPU6050WriteBuf write,
-                                   MPU6050Delayms delay);
+                                   MPU6050_ReadBuf read, MPU6050_WriteBuf write,
+                                   MPU6050_Delayms delay);
 void MPU6050_GetRedirectValue(MPU6050ObjectType *mpu6050);
 
 #endif // !MPU6050_H

@@ -4,6 +4,9 @@ project(MyDriverProject LANGUAGES C CXX)
 # 生成编译数据库给clangd使用
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+set(CMAKE_C_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-gcc.exe")
+set(CMAKE_CXX_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-g++.exe")
+
 # 添加头文件搜索路径
 include_directories(
     device/iic/
@@ -41,6 +44,8 @@ add_library(MyDriver STATIC
     ${PID_SOURCES}
     ${VOFA_SOURCES}
 )
+
+target_link_libraries(MyDriver m)
 
 # 如果有main.c，创建一个简单的测试程序
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/main.c")

@@ -39,14 +39,14 @@ typedef struct {
 } HC05ObjectType;
 
 /*需要实现的供HC05使用的串口函数接口*/
-typedef uint8_t (*HC05TxData)(uint8_t *txBuf,
+typedef uint8_t (*HC05_TxData)(uint8_t *txBuf,
                               uint8_t len); // 声明使用串口发送多个字节的函数
-typedef uint8_t (*HC05RxData)(uint8_t *rxBuf,
+typedef uint8_t (*HC05_RxData)(uint8_t *rxBuf,
                               uint8_t len); // 声明使用串口接收多个字节的函数
 
 /*声明调用函数*/
-HC05ErrorType HC05O_bjectInit(HC05ObjectType *hc05, HC05TxData tx,
-                             HC05RxData rx);
+HC05ErrorType HC05O_bjectInit(HC05ObjectType *hc05, HC05_TxData tx,
+                             HC05_RxData rx);
 uint8_t HC05_TxPacket(HC05ObjectType *hc05, HC05Packet *txPacket);
 uint8_t HC05_RxPacket(HC05ObjectType *hc05, uint8_t *rxData, uint8_t len);
 

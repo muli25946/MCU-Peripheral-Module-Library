@@ -26,9 +26,9 @@ static uint8_t IST8310Check(IST8310ObjectType *ist);          // 一阶低通滤
  * @param delay 毫秒延迟函数指针
  * @return IST8310ErrorType
  */
-IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
-                                   IST8310WriteBuf write,
-                                   IST8310Delayms delay) {
+IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310_ReadBuf read,
+                                   IST8310_WriteBuf write,
+                                   IST8310_Delayms delay) {
   uint8_t retry = 0;
 
   /*检查注入函数是否空缺*/

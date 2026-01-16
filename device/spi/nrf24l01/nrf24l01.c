@@ -99,11 +99,11 @@ uint8_t NRF24L01_ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf) {
  * @return NRF24L01ErrorType
  */
 NRF24L01ErrorType NRF24L01_ObjectInit(NRF24L01ObjectType *nrf,
-                                         NRF24L01ReadWriteByte spiReadWrite,
-                                         NRF24L01ChipSelect cs,
-                                         NRF24L01ChipEnable ce,
-                                         NRF24L01GetIRQ irq,
-                                         NRF24L01Delayms delayms) {
+                                         NRF24L01_ReadWriteByte spiReadWrite,
+                                         NRF24L01_ChipSelect cs,
+                                         NRF24L01_ChipEnable ce,
+                                         NRF24L01_GetIRQ irq,
+                                         NRF24L01_Delayms delayms) {
   int retry = 0;
 
   if ((nrf == NULL) || (spiReadWrite == NULL) || (ce == NULL) ||

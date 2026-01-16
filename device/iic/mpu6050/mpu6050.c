@@ -16,8 +16,8 @@ static void gyro_lowpass_filter(mpu6050_struct *mpu6050, float alpha,
                                 float deadband); // 一阶低通滤波器
 
 MPU6050ErrorType MPU6050_ObjectInit(MPU6050ObjectType *mpu6050,
-                                   MPU6050ReadBuf read, MPU6050WriteBuf write,
-                                   MPU6050Delayms delay) {
+                                   MPU6050_ReadBuf read, MPU6050_WriteBuf write,
+                                   MPU6050_Delayms delay) {
   uint8_t retry = 0;
   uint8_t status = 0;
 

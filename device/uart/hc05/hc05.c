@@ -15,8 +15,8 @@ const uint8_t tail[4] = {0x00, 0x00, 0x80, 0x7f};
  * @param delay 延时函数指针
  * @return HC05ErrorType
  */
-HC05ErrorType HC05O_bjectInit(HC05ObjectType *hc05, HC05TxData tx,
-                             HC05RxData rx) {
+HC05ErrorType HC05O_bjectInit(HC05ObjectType *hc05, HC05_TxData tx,
+                             HC05_RxData rx) {
 
   /*检查注入函数*/
   if ((tx == NULL) || (rx == NULL)) {
