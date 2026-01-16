@@ -1,6 +1,4 @@
-/*dependence*/
 #include "vofa.h"
-/*std*/
 #include <stdint.h>
 #include <string.h>
 

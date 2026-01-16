@@ -1,7 +1,3 @@
-# 跳过编译器检查
-set(CMAKE_C_COMPILER_WORKS 1)
-set(CMAKE_CXX_COMPILER_WORKS 1)
-
 cmake_minimum_required(VERSION 3.10)
 project(MyDriverProject LANGUAGES C CXX)
 
