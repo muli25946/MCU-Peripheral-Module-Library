@@ -58,14 +58,14 @@ typedef uint8_t (*NRF24L01GetIRQ)(void);               // 声明中断获取函�
 typedef void (*NRF24L01Delayms)(volatile uint32_t nTime); // 毫秒延时操作指针
 
 /*启动NRF24L01发送一次数据包*/
-uint8_t NRF24L01TransmitPacket(NRF24L01ObjectType *nrf, uint8_t *txbuf);
+uint8_t NRF24L01_TransmitPacket(NRF24L01ObjectType *nrf, uint8_t *txbuf);
 
 /*启动NRF24L01接收一次数据包*/
-uint8_t NRF24L01ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf);
+uint8_t NRF24L01_ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf);
 
 /*nRF24L01对象初始化函数*/
 NRF24L01ErrorType
-NRF24L01Initialization(NRF24L01ObjectType *nrf,            // nRF24L01对象
+NRF24L01_ObjectInit(NRF24L01ObjectType *nrf,            // nRF24L01对象
                        NRF24L01ReadWriteByte spiReadWrite, // SPI读写函数指针
                        NRF24L01ChipSelect cs,  // 片选信号操作函数指针
                        NRF24L01ChipEnable ce,  // 使能信号操作函数指针

@@ -9,6 +9,7 @@ include_directories(
     device/iic/
     device/iic/ist8310/
     device/iic/mpu6050/
+    device/iic/ssd1306/
     device/spi/
     device/spi/nrf24l01/
     device/uart/
@@ -22,6 +23,7 @@ include_directories(
 # 分别收集每个模块的源文件
 file(GLOB IIC_IST8310_SOURCES "device/iic/ist8310/*.c")
 file(GLOB IIC_MPU6050_SOURCES "device/iic/mpu6050/*.c")
+file(GLOB IIC_SSD1306_SOURCES "device/iic/ssd1306/*.c")
 file(GLOB SPI_NRF24L01_SOURCES "device/spi/nrf24l01/*.c")
 file(GLOB UART_HC05_SOURCES "device/uart/hc05/*.c")
 file(GLOB MAHONY_SOURCES "modules/mahony/*.c")
@@ -32,6 +34,7 @@ file(GLOB VOFA_SOURCES "modules/vofa/*.c")
 add_library(MyDriver STATIC
     ${IIC_IST8310_SOURCES}
     ${IIC_MPU6050_SOURCES}
+    ${IIC_SSD1306_SOURCES}
     ${SPI_NRF24L01_SOURCES}
     ${UART_HC05_SOURCES}
     ${MAHONY_SOURCES}

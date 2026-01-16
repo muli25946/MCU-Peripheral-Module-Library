@@ -1,8 +1,5 @@
-/*map*/
 #include "mpu6050_reg.h"
-/*dependence*/
 #include "mpu6050.h"
-/*std*/
 #include <math.h>
 #include <stdint.h>
 
@@ -18,7 +15,7 @@ static uint8_t MPU6050Check(MPU6050ObjectType *mpu6050); // 读多个数据
 static void gyro_lowpass_filter(mpu6050_struct *mpu6050, float alpha,
                                 float deadband); // 一阶低通滤波器
 
-MPU6050ErrorType MPU6050ObjectInit(MPU6050ObjectType *mpu6050,
+MPU6050ErrorType MPU6050_ObjectInit(MPU6050ObjectType *mpu6050,
                                    MPU6050ReadBuf read, MPU6050WriteBuf write,
                                    MPU6050Delayms delay) {
   uint8_t retry = 0;
@@ -58,7 +55,7 @@ MPU6050ErrorType MPU6050ObjectInit(MPU6050ObjectType *mpu6050,
  * mpu6050自动获取原始数据转换为物理量(float)同时按照机体系(FRD)映射。加速度单位:m/s²;陀螺仪单位:°/s;
  * @param  mpu6050 指向mpu6050_struct的地址。用于存储数据
  */
-void MPU6050GetRedirectValue(MPU6050ObjectType *mpu6050) {
+void MPU6050_GetRedirectValue(MPU6050ObjectType *mpu6050) {
   uint8_t mpu6050RxBuff[14];
   // 获取原始数据
   MPU6050ReadBuff(mpu6050, MPU6050_ACCEL_XOUT_H, mpu6050RxBuff, 14);

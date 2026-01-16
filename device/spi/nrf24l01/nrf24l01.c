@@ -36,7 +36,7 @@ static void NRF24L01CSDefault(NRF24L01CSType cs);
  * @param txbuf 待发送数据首地址
  * @return uint8_t 发送完成状况
  */
-uint8_t NRF24L01TransmitPacket(NRF24L01ObjectType *nrf, uint8_t *txbuf) {
+uint8_t NRF24L01_TransmitPacket(NRF24L01ObjectType *nrf, uint8_t *txbuf) {
   uint8_t status;
 
   SetNRF24L01Mode(nrf, NRF24L01TxMode);
@@ -70,7 +70,7 @@ uint8_t NRF24L01TransmitPacket(NRF24L01ObjectType *nrf, uint8_t *txbuf) {
  * @param rxbuf 待发送数据首地址
  * @return uint8_t 0，接收完成；其他，错误代码
  */
-uint8_t NRF24L01ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf) {
+uint8_t NRF24L01_ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf) {
   uint8_t status;
 
   SetNRF24L01Mode(nrf, NRF24L01RxMode);
@@ -98,7 +98,7 @@ uint8_t NRF24L01ReceivePacket(NRF24L01ObjectType *nrf, uint8_t *rxbuf) {
  * @param delayms 毫秒延时
  * @return NRF24L01ErrorType
  */
-NRF24L01ErrorType NRF24L01Initialization(NRF24L01ObjectType *nrf,
+NRF24L01ErrorType NRF24L01_ObjectInit(NRF24L01ObjectType *nrf,
                                          NRF24L01ReadWriteByte spiReadWrite,
                                          NRF24L01ChipSelect cs,
                                          NRF24L01ChipEnable ce,

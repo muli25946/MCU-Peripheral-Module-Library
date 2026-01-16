@@ -59,9 +59,9 @@ typedef uint8_t (*MPU6050WriteBuf)(
 typedef void (*MPU6050Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
 /*声明函数*/
-MPU6050ErrorType MPU6050ObjectInit(MPU6050ObjectType *mpu6050,
+MPU6050ErrorType MPU6050_ObjectInit(MPU6050ObjectType *mpu6050,
                                    MPU6050ReadBuf read, MPU6050WriteBuf write,
                                    MPU6050Delayms delay);
-void MPU6050GetRedirectValue(MPU6050ObjectType *mpu6050);
+void MPU6050_GetRedirectValue(MPU6050ObjectType *mpu6050);
 
 #endif // !MPU6050_H
