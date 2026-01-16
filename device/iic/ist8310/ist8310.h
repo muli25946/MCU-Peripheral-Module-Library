@@ -58,9 +58,9 @@ typedef uint8_t (*IST8310WriteBuf)(
 typedef void (*IST8310Delayms)(uint32_t nTime); // 声明毫秒延迟函数
 
 /*声明函数*/
-IST8310ErrorType IST8310ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
+IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
                                    IST8310WriteBuf write, IST8310Delayms delay);
-void IST8310_GET_RAW_DATA(IST8310ObjectType *ist);
-void IST8310_GET_MEG_VAL(IST8310ObjectType *ist);
+void IST8310_GetRawData(IST8310ObjectType *ist);
+void IST8310_GetMegVal(IST8310ObjectType *ist);
 
 #endif // !IST8310_H

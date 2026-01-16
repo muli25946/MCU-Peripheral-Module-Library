@@ -1,6 +1,6 @@
-/*dependence*/
 #include "hc05.h"
 #include <stdint.h>
+#include <stddef.h>
 
 #if defined(VOFA)
 const uint8_t tail[4] = {0x00, 0x00, 0x80, 0x7f};
@@ -15,7 +15,7 @@ const uint8_t tail[4] = {0x00, 0x00, 0x80, 0x7f};
  * @param delay 延时函数指针
  * @return HC05ErrorType
  */
-HC05ErrorType HC05ObjectInit(HC05ObjectType *hc05, HC05TxData tx,
+HC05ErrorType HC05O_bjectInit(HC05ObjectType *hc05, HC05TxData tx,
                              HC05RxData rx) {
 
   /*检查注入函数*/
@@ -37,7 +37,7 @@ HC05ErrorType HC05ObjectInit(HC05ObjectType *hc05, HC05TxData tx,
  * @param txPacket 要发送的数据包
  * @return uint8_t
  */
-uint8_t HC05TxPacket(HC05ObjectType *hc05, HC05Packet *txPacket) {
+uint8_t HC05_TxPacket(HC05ObjectType *hc05, HC05Packet *txPacket) {
   uint8_t status;
 
   status += hc05->TxData(&txPacket->head, 1);
@@ -57,7 +57,7 @@ uint8_t HC05TxPacket(HC05ObjectType *hc05, HC05Packet *txPacket) {
  * @param len 要接收的数据长度
  * @return uint8_t
  */
-uint8_t HC05RxPacket(HC05ObjectType *hc05, uint8_t *rxData, uint8_t len) {
+uint8_t HC05_RxPacket(HC05ObjectType *hc05, uint8_t *rxData, uint8_t len) {
   uint8_t status;
   status += hc05->RxData(rxData, len);
   return status;

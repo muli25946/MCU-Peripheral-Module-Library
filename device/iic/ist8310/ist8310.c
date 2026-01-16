@@ -26,7 +26,7 @@ static uint8_t IST8310Check(IST8310ObjectType *ist);          // 一阶低通滤
  * @param delay 毫秒延迟函数指针
  * @return IST8310ErrorType
  */
-IST8310ErrorType IST8310ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
+IST8310ErrorType IST8310_ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
                                    IST8310WriteBuf write,
                                    IST8310Delayms delay) {
   uint8_t retry = 0;
@@ -67,7 +67,7 @@ IST8310ErrorType IST8310ObjectInit(IST8310ObjectType *ist, IST8310ReadBuf read,
  *
  * @param ist ist8310对象
  */
-void IST8310_GET_RAW_DATA(IST8310ObjectType *ist) {
+void IST8310_GetRawData(IST8310ObjectType *ist) {
   uint8_t temp[6];
   IST8310ReadBuff(ist, IST8310_DATA_XL_ADDR, temp, 6);
   ist->data.raw_x = (int16_t)(temp[1] << 8 | temp[0]);
@@ -80,8 +80,8 @@ void IST8310_GET_RAW_DATA(IST8310ObjectType *ist) {
  *
  * @param ist ist8310对象
  */
-void IST8310_GET_MEG_VAL(IST8310ObjectType *ist) {
-  IST8310_GET_RAW_DATA(ist);
+void IST8310_GetMegVal(IST8310ObjectType *ist) {
+  IST8310_GetRawData(ist);
   ist->data.x = ist->data.raw_x * MAG_SEN;
   ist->data.y = ist->data.raw_y * MAG_SEN;
   ist->data.z = ist->data.raw_z * MAG_SEN;
