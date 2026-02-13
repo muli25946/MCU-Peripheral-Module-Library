@@ -1,7 +1,7 @@
+#include <stdint.h>
 #include "mpu6050_reg.h"
 #include "mpu6050.h"
 #include <math.h>
-#include <stdint.h>
 
 static uint8_t MPU6050WriteReg(MPU6050ObjectType *mpu6050, uint8_t reg,
                                uint8_t data); // 写一个寄存器值

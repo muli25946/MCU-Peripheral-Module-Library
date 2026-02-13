@@ -1,11 +1,30 @@
 cmake_minimum_required(VERSION 3.10)
+
+# 设置尝试编译目标类型为静态库
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
 project(MyDriverProject LANGUAGES C CXX)
 
 # 生成编译数据库给clangd使用
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(CMAKE_C_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-gcc.exe")
-set(CMAKE_CXX_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-g++.exe")
+# 检测主机操作系统
+if(CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
+    set(HOST_OS "Windows")
+    # 设置交叉编译器路径
+    set(CMAKE_C_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-gcc.exe")
+    set(CMAKE_CXX_COMPILER "C:/.Drivers/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/arm-none-eabi-g++.exe")
+elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux")
+    set(HOST_OS "Linux")
+    # 设置交叉编译器路径
+    set(CMAKE_C_COMPILER "/home/muli/toolchain/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc")
+    set(CMAKE_CXX_COMPILER "/home/muli/toolchain/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-g++")    
+else()
+    message(WARNING "Unsupported host OS: ${CMAKE_HOST_SYSTEM_NAME}. Assuming Linux-like toolchain.")
+    set(HOST_OS ${CMAKE_HOST_SYSTEM_NAME})
+    set(TOOLCHAIN_EXE_SUFFIX "")
+    set(TOOLCHAIN_PATH "/usr/bin" CACHE PATH "ARM toolchain bin directory")
+endif()
 
 # 添加头文件搜索路径
 include_directories(
