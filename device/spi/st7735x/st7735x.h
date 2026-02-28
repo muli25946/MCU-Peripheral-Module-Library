@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2026
  *
  */
-#ifndef ST735S_H
-#define ST735S_H
+#ifndef ST735_H
+#define ST735_H
 
 #include <stdint.h>
 
@@ -81,8 +81,8 @@ typedef uint8_t (*ST7735_SPIChipSelect)(
         status); // ST7735的片选操作,硬件片选可忽略同时传入初始化参数NULL即可
 typedef uint8_t (*ST7735_Reset)(ST7735RSTEnableType status); // ST7735的复位操作
 typedef uint8_t (*ST7735_Blk)(
-    ST7735BlkStatus blk); // ST7735的背光控制操作，如果不想控制背光可缺省
-typedef void (*ST7735_DC)(ST7735ModeType mode); // ST7735的DC控制操作
+    ST7735BlkStatus blk); // ST7735的背光控制操作，如果不想控制背光可缺省，也可使用pwm调光，传入NULL即可
+typedef void (*ST7735_DC)(ST7735ModeType mode); // ST7735的DC控制操作,低电平->命令模式,高电平->数据模式
 typedef void (*ST7735_DelayMs)(uint32_t ms);    // ST7735的延时函数
 
 /*可用函数*/

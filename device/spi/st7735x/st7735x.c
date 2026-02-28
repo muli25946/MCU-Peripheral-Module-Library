@@ -390,7 +390,7 @@ static uint8_t ST7735_WriteCommandData(ST7735ObjectType *st7735,
     st7735->ChipSelect(ST7735_CS_ENABLE);  // 使能片选
     st7735->dc(ST7735_MODE_CMD);           // 选择命令模式
     status += st7735->Write(Command, 1);   // 发送命令数据
-    st7735->ChipSelect(ST7735_CS_DISABLE); // 失能片选}
+    st7735->ChipSelect(ST7735_CS_DISABLE); // 失能片选
   }
   if (data == NULL) {
     return status;
@@ -400,7 +400,6 @@ static uint8_t ST7735_WriteCommandData(ST7735ObjectType *st7735,
     st7735->dc(ST7735_MODE_DATA);          // 选择数据模式
     status += st7735->Write(data, len);    // 发送数据
     st7735->ChipSelect(ST7735_CS_DISABLE); // 失能片选
-
     return status;
   }
 }
